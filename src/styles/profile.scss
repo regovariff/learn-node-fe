@@ -1,0 +1,27 @@
+.profile-container {
+    min-width: 400px;
+    button {
+        height: 2rem;
+        padding: unset;
+        border: 1px solid black;
+        background: lightyellow;
+        &:hover {
+            background: lightcoral;
+        }
+    }
+    .profile-section {
+        display: flex;
+        flex-direction: column;
+        .profile-content-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+            input, textarea {
+                height: 2rem;
+                border-radius: 0.5rem;
+                box-sizing: border-box;
+            }
+        }
+    }
+}

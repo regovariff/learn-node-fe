@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { register } from '../api/auth';
+import { register } from '../api/api';
 import '../styles/login.scss';
 import { PAGE_ROUTES } from '../constant/page-routes';
 

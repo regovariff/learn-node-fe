@@ -13,3 +13,17 @@ export const getProfile = (token: string) =>
     });
 
 export const logout = () => axios.post(`${BASE_URL}/logout`);
+
+export const updateProfile = (
+    token: string,
+    data: {
+        email?: string;
+        fullname?: string;
+        bio?: string;
+        password?: string;
+        skills?: string[];
+    },
+) =>
+    axios.put(`${BASE_URL}/profile`, data, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
