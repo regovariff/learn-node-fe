@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { getProfile, logout, updateProfile, postStatus } from '../api/api';
 import { PAGE_ROUTES } from '../constant/page-routes';
 import '../styles/profile.scss';
+import { placeholderImg } from '../assets';
 
 const ProfilePage: React.FC = () => {
     const [user, setUser] = useState<any>(null);
@@ -118,6 +119,14 @@ const ProfilePage: React.FC = () => {
         navigate(PAGE_ROUTES.PROTECTED.STATUS);
     };
 
+    const getUserProfilePic = () => {
+        if(user.profile_picture) {
+            return user.profile_picture;
+        } else {
+            return placeholderImg;
+        }
+    }
+
     return (
         <div className="profile-container">
             <h2>Profile</h2>
@@ -137,11 +146,9 @@ const ProfilePage: React.FC = () => {
                             <div className="id-tag">ID: {user.id}</div>
 
                             <div className="top-section">
-                                {user.profile_picture && (
-                                    <div className="profile-picture-wrapper">
-                                        <img src={user.profile_picture} alt="Profile" className="profile-picture" />
-                                    </div>
-                                )}
+                                <div className="profile-picture-wrapper">
+                                    <img src={getUserProfilePic()} alt="Profile" className="profile-picture" />
+                                </div>
 
                                 <div className="status-post-container">
                                     <h3>Post a Status</h3>
