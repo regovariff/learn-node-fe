@@ -54,11 +54,18 @@ const ProfilePage: React.FC = () => {
     }, [navigate]);
 
     const handleLogout = async () => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            navigate(PAGE_ROUTES.PUBLIC.LOGIN);
+            return;
+        }
+
         try {
-            await logout();
+            await logout(token);
         } catch (err) {
             console.error('Logout failed:', err);
         }
+
         localStorage.removeItem('token');
         navigate(PAGE_ROUTES.PUBLIC.LOGIN);
     };
@@ -120,12 +127,12 @@ const ProfilePage: React.FC = () => {
     };
 
     const getUserProfilePic = () => {
-        if(user.profile_picture) {
+        if (user.profile_picture) {
             return user.profile_picture;
         } else {
             return placeholderImg;
         }
-    }
+    };
 
     return (
         <div className="profile-container">

@@ -12,7 +12,14 @@ export const getProfile = (token: string) =>
         headers: { Authorization: `Bearer ${token}` },
     });
 
-export const logout = () => axios.post(`${BASE_URL}/logout`);
+export const logout = (token: string) =>
+    axios.post(
+        `${BASE_URL}/logout`,
+        {},
+        {
+            headers: { Authorization: `Bearer ${token}` },
+        },
+    );
 
 export const updateProfile = (token: string, formData: FormData) =>
     axios.put(`${BASE_URL}/profile`, formData, {
