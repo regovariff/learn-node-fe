@@ -1,0 +1,162 @@
+.statuses-container {
+    max-width: 650px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    width: 1440px;
+    
+    h2 {
+        text-align: center;
+        margin: 0 0 1rem;
+        color: #2c3e50;
+        font-size: 1.8rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+        
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     bottom: 0;
+        //     left: 50%;
+        //     transform: translateX(-50%);
+        //     width: 60px;
+        //     height: 3px;
+        //     background: linear-gradient(90deg, #3498db, #9b59b6);
+        //     border-radius: 3px;
+        // }
+    }
+    
+    .status-post-container {
+        background: #f8fafc;
+        padding: 1.25rem;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        border: 1px solid #edf2f7;
+      
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            
+            &:focus {
+                outline: none;
+                border-color: #3498db;
+                box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+            }
+            
+            &::placeholder {
+                color: #a0aec0;
+            }
+        }
+      
+        button {
+            width: fit-content;
+            align-self: flex-end;
+            padding: 0.6rem 1.25rem;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            
+            &:hover {
+                background: #2980b9;
+                transform: translateY(-2px);
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            
+            &:active {
+                transform: translateY(0);
+            }
+        }
+    }
+    
+    .status-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .status-item {
+        background: #fcfcfe;
+        padding: 1.25rem;
+        border-radius: 10px;
+        border: 1px solid #edf2f7;
+        position: relative;
+        transition: all 0.2s ease;
+      
+        &:hover {
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+      
+        .status-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        
+            .username {
+                font-weight: 600;
+                color: #2c3e50;
+                font-size: 1.1rem;
+            }
+        }
+      
+        .status-message {
+            margin: 0.75rem 0;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+      
+        .status-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.75rem;
+            
+            .timestamp {
+                font-size: 0.8rem;
+                color: #a0aec0;
+            }
+            
+            .delete-button {
+                background: none;
+                border: none;
+                color: #e53e3e;
+                font-size: 0.85rem;
+                padding: 0;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                font-weight: 500;
+            
+                &:hover {
+                    color: #c53030;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    
+    .empty-status {
+        text-align: center;
+        color: #a0aec0;
+        font-style: italic;
+        padding: 2rem 0;
+    }
+}

@@ -5,6 +5,7 @@ import ProtectedLayout from './layouts/protected-layout';
 import LoginPage from '../pages/login';
 import RegisterPage from '../pages/register';
 import ProfilePage from '../pages/profile';
+import StatusPage from '../pages/status-page';
 import { PAGE_ROUTES } from '../constant/page-routes';
 
 const { PUBLIC, PROTECTED } = PAGE_ROUTES;
@@ -22,7 +23,10 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <ProtectedLayout />,
-        children: [{ path: PROTECTED.PROFILE, element: <ProfilePage /> }],
+        children: [
+            { path: PROTECTED.PROFILE, element: <ProfilePage /> },
+            { path: PROTECTED.STATUS, element: <StatusPage /> },
+        ],
     },
 ]);
 

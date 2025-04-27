@@ -14,16 +14,23 @@ export const getProfile = (token: string) =>
 
 export const logout = () => axios.post(`${BASE_URL}/logout`);
 
-export const updateProfile = (
-    token: string,
-    data: {
-        email?: string;
-        fullname?: string;
-        bio?: string;
-        password?: string;
-        skills?: string[];
-    },
-) =>
-    axios.put(`${BASE_URL}/profile`, data, {
+export const updateProfile = (token: string, formData: FormData) =>
+    axios.put(`${BASE_URL}/profile`, formData, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data',
+        },
+    });
+
+// Status
+export const postStatus = (token: string, payload: { message: string }) =>
+    axios.post(`${BASE_URL}/status`, payload, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+
+export const getStatuses = () => axios.get(`${BASE_URL}/status`);
+
+export const deleteStatus = (token: string, statusId: number) =>
+    axios.delete(`${BASE_URL}/status/${statusId}`, {
         headers: { Authorization: `Bearer ${token}` },
     });

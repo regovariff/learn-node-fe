@@ -6,5 +6,6 @@ export const PAGE_ROUTES = {
     },
     PROTECTED: {
         PROFILE: '/profile',
+        STATUS: '/status'
     },
 };
